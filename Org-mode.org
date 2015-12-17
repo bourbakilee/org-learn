@@ -23,14 +23,18 @@ org-mode通过大纲(Outlines)来组织文档结构。
  * 一级标题
  ** 二级标题
 #+END_EXAMPLE
-#+BEGIN_SRC latex
-\alpha = \beta + \gamma
-$ x = \sqrt{a^2+b^2} $
-#+END_SRC
 
+#+BEGIN_SRC C++
+#include<iostream>
+using namespace std;
+int main()
+{
+    cout<<"Hello, Org-mode!"<<endl;
+    return 0;
+}
+#+END_SRC
 
 #+BEGIN_SRC python
 def test(a,b):
     return a+b
 #+END_SRC
-#+RESULT
