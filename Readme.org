@@ -1,8 +1,4 @@
 * Learning Org-mode in Emacs!
-** 如何使用git和github？
-- git init
-- git add filename
-- git pull origin master
-- git push origin master
-- git commit -m "something-to-say"
-- git remote add origin git@github.com:bourbakilee/org-learn.git
+- [[file:Org-mode.org][Org-mode Usage]]
+- [[file:git.org][Git Usage]]
+
