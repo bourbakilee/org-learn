@@ -1,0 +1,3 @@
+* Python
+** Effective Python: 59 specific ways to write better python
+*** Items 13: Take advantage of each block in try/except/else/finally
