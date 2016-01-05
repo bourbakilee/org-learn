@@ -19,10 +19,10 @@ org-mode通过大纲(Outlines)来组织文档结构。
 通过大纲可以将文档组织成一个层级结构，通过折叠/隐藏可以快速浏览整个文档结构。
 *** 标题(headlines)
 标题定义了大纲的结构，标题由以空格结尾的若干个星号来定义，如：
-#+BEGIN_EXAMPLE
- * 一级标题
- ** 二级标题
-#+END_EXAMPLE
+#+BEGIN_SRC org
+,* 一级标题
+,** 二级标题
+#+END_SRC
 
 #+BEGIN_SRC C++
 #include<iostream>
@@ -38,3 +38,13 @@ int main()
 def test(a,b):
     return a+b
 #+END_SRC
+
+#+begin_src org
+,Angles are written as Greek letters \alpha, \beta and \gamma. The mass if
+,the sun is M_sun = 1.989 x 10^30 kg. The radius of the sun is R_{sun} =
+,6.96 x 10^8 m. If $a^2=b$ and $b=2$, then the solution must be either
+,$a=+\sqrt{2}$ or $a=-\sqrt{2}$.
+,\begin{equation}
+,x=\sqrt{b}
+,\end{equation}
+#+end_src
