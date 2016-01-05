@@ -1,8 +1,23 @@
 * Python
 ** Effective Python: 59 specific ways to write better python
 **** Items 13: Take advantage of each block in try/except/else/finally
-#+BEGIN_SRC org
-,#+BEGIN_EXAMPLE
-,* This is a heading
-,#+END_EXAMPLE
-#+END_SRC
+**** Items 22: Prefer helper classes over bookkeeping with dictionaries and tuples
+**** Items 24: Use =@classmethod= Polymorphism to construct objects generically
+- Python only supports a single constructor per class, the =__init__()= method
+- Use =@classmethod= to define alternative constructors for your class
+- Use class method polymorphism to provide generic ways to build and connect concrete subclass
+**** Items 26: Use multiple inheritance only for mix-in utility classes
+A mix-in is a small class that only defines set of additional methods that a class should provide.
+Mix-in classes don't define their own instance attributes nor require their =__init__= constructor to be called.
+*** Metaclasses and Attributes
+**** Items 29: Use plain attributes instead of Get and Set methods
+=@property= decorator and its corresponding =setter= attribute, perform type checking and validation on values passed to class,
+make attributes from parent classes immutable. The best policy is to only modify related object state in =@property.setter= method.
+
+* C++
+** C++ Primer 5
+** Effective Modern C++ 42 Specific Ways to Improve Your Use of C++11 and C++14
+** The C++ Programming.Language.4th.Edition
+** The C++ Standard Library A Tutorial and Reference
+** Programming- Principles and Practice Using C++
+** C++ Concurrency in Action
