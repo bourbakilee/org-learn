@@ -13,7 +13,63 @@ Mix-in classes don't define their own instance attributes nor require their =__i
 **** Items 29: Use plain attributes instead of Get and Set methods
 =@property= decorator and its corresponding =setter= attribute, perform type checking and validation on values passed to class,
 make attributes from parent classes immutable. The best policy is to only modify related object state in =@property.setter= method.
+**** Items 31: Use Descriptors for reusable =@property= methods
+A descriptor class can provide =__get__= and =__set__= methods that let you reuse some behavior without any boilerplate.
+#+BEGIN_SRC python
+from weakref import WeakKeyDictionary
+class Grade(object):
+    def __init__(self):
+        self._values = WeakKeyDictionary()
 
+    def __get__(self, instance, instance_type):
+        if instance is None: return self
+        return self._values.get(instance, 0)
+
+    def __set__(self, instance, value):
+        if not (0 <= value <= 100):
+            raise ValueError('Grade must between 0 and 100')
+        self._values[instance] = value
+
+class Exam(object):
+    math_grade = Grade()
+    writing_grade = Grade()
+    science_grade = Grade()
+
+first_exam = Exam()
+first_exam.writing_grade = 82
+second_exam = Exam()
+second_exam.writing_grade = 75
+return (first_exam.writing_grade, second_exam.writing_grade )
+#+END_SRC
+#+RESULTS:
+**** Items 32: Use =__getattr__=, =__getattribute__=, and =__setattr__= for lazy attributes
+built-in functions: =setattr=, =setattr=, =hasattr=.
+**** Items 33: Validate subclasses with Metaclasses
+A metaclass is defined by inheriting from =type=. In the default case, a metaclass receives the contents of associated =class= statements in its =__new__= method.
+#+BEGIN_SRC python
+class ValidatePolygon(type):
+    def __new__(meta, name, bases, class_dict):
+        if bases != (object,):
+            if class_dict['sides'] < 3:
+                raise ValueError('Polygons need 3+ sides')
+        return type.__new__(meta, name, bases, class_dict)
+
+class Polygon(object, metaclass=ValidatePolygon):
+    sides = None
+
+    @classmethod
+    def interior_angles(cls):
+        return (cls.sides - 2)*180
+
+class Triangle(Polygon):
+    sides = 3
+#+END_SRC
+**** Items 34: Register class existence with metaclasses
+- Serialization
+- Database object-relationship mappings(ORMs)
+- Plugin Systems
+- Systems Hooks
+*** Concurrency and parallelism
 * C++
 ** C++ Primer 5
 ** Effective Modern C++ 42 Specific Ways to Improve Your Use of C++11 and C++14
