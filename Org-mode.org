@@ -76,13 +76,18 @@ x=\sqrt{b}
 \end{equation}
 #+end_src
 
-#+BEGIN_SRC c++
+#+BEGIN_SRC C++
 #include<cmath>
 #include<iostream>
 using namespace std;
+int main()
+{
 double x = 10.;
 double y = sin(x);
-cout<<y<<endl;
+cout << y << endl;
+return 0;
+}
 #+END_SRC
-#+RESULTS
+#+RESULTS:
+: -0.544021
 
