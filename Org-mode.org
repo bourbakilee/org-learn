@@ -24,6 +24,13 @@ org-mode通过大纲(Outlines)来组织文档结构。
 ,** 二级标题
 #+END_SRC
 
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC org
+,* first headline
+,** second headline
+#+END_SRC
+#+END_EXAMPLE
+
 #+BEGIN_SRC C++
 #include<iostream>
 using namespace std;
@@ -35,9 +42,29 @@ int main()
 #+END_SRC
 
 #+BEGIN_SRC python
-def test(a,b):
-    return a+b
+def foo(x):
+  if x>0:
+    return x+1
+  else:
+    return x-1
+
+return foo(5)
 #+END_SRC
+#+RESULTS:
+: 6
+
+#+begin_src python :results file
+import matplotlib, numpy
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+plt.savefig('python-matplot-fig.png')
+return 'python-matplot-fig.png' # return filename to org-mode
+#+end_src
+
+#+RESULTS:
+[[file:python-matplot-fig.png]]
 
 #+begin_src org
 Angles are written as Greek letters \alpha, \beta and \gamma. The mass if
@@ -48,3 +75,14 @@ $a=+\sqrt{2}$ or $a=-\sqrt{2}$.
 x=\sqrt{b}
 \end{equation}
 #+end_src
+
+#+BEGIN_SRC c++
+#include<cmath>
+#include<iostream>
+using namespace std;
+double x = 10.;
+double y = sin(x);
+cout<<y<<endl;
+#+END_SRC
+#+RESULTS
+
